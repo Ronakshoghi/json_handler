@@ -1,0 +1,119 @@
+html[data-theme="light"], :root {
+    --btncolor: #79aec8;
+    --backcolor: white;
+
+}
+html[data-theme="dark"], :root {
+    --btncolor: #264b5d;
+    --backcolor: #121212
+}
+
+.tags-input {
+    display: inline-block;
+    position: relative;
+    /*border: 1px solid #ccc;*/
+    border-radius: 4px;
+    padding: 5px;
+    /*box-shadow: 2px 2px 5px #00000033;*/
+    width: auto;
+}
+
+.tags-input ul {
+    list-style: none;
+    padding: 5px;
+    margin: 0;
+}
+
+
+#toolbar form input[type="submit"] {
+    border-radius: 4px;
+    font-size: 0.875rem;
+    padding: 5px;
+    background-color: var(--btncolor);
+    color: var(--body-fg);
+}
+
+.tags-input li {
+    display: inline-block;
+    background-color: var(--btncolor);
+    color: var(--body-fg);
+    border-radius: 20px;
+    padding: 5px 10px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.tags-input input[type="text"] {
+    outline: none;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.tags-input input[type="text"]:focus {
+    outline: none;
+}
+
+.tags-input .delete-button {
+    background-color: transparent;
+    color: red !important;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+/* Style The Dropdown Button */
+.dropbtn {
+    background-color: var(--btncolor);
+    color: var(--body-fg);
+    padding: 14px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    width: auto;
+    min-width: 165px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    /*background-color: #f9f9f9;*/
+    min-width: 165px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    background-color: var(--backcolor);
+    color: var(--body-fg);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    /*border-radius: 3px;*/
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: var(--btncolor);
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: var(--btncolor);
+}

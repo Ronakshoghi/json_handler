@@ -1,0 +1,60 @@
+{% load i18n static %}
+{% block extrahead %}
+    <script src="{% static 'admin/js/custom.js' %}" defer></script>
+    <link rel="stylesheet" href="{% static 'admin/css/main.css' %}">
+
+{% endblock %}
+
+{% if cl.search_fields %}
+    <div id="toolbar">
+        <form id="changelist-search" method="get">
+            <div class="tags-input">
+
+                <input type="text" size="70" name="{{ search_var }}" value="{{ cl.query }}" id="input-tag"
+                       placeholder="Search in datas"/>
+                <div class="dropdown">
+                    <input type="button" class="dropbtn" value="Select Search Data">
+                    <div class="dropdown-content">
+                        <a onclick="updateInput('owner:')">Owner</a>
+                        <a onclick="updateInput('Abaqus-Version:')">Abaqus-Version</a>
+                        <a onclick="updateInput('Hash_Orientation:')">Hash_Orientation</a>
+                        <a onclick="updateInput('Texture_Type:')">Texture_Type</a>
+                        <a onclick="updateInput('Element_Number:')">Element_Number</a>
+                        <a onclick="updateInput('Grain_Number:')">Grain_Number</a>
+                        <a onclick="updateInput('Material_parameters:')">Material_parameters(Whole array)</a>
+                        <a onclick="updateInput('Load_Type:')">Load_Type</a>
+                        <a onclick="updateInput('Stress_Type:')">Stress_Type</a>
+                        <a onclick="updateInput('Load_Descriptor:')">Load_Descriptor</a>
+                        <a onclick="updateInput('Hash_load:')">Hash_load</a>
+                        <a onclick="updateInput('Scaling_Factor:')">Scaling_Factor</a>
+                        <a onclick="updateInput('Max_Total_Strain:')">Max_Total_Strain</a>
+                    </div>
+                </div>
+                <input type="submit" value="{% translate 'Search' %}" class="submitSearch">
+                <ul id="tags"></ul>
+            </div>
+
+            <br>
+            <div><!-- DIV needed for valid HTML -->
+                <input type="hidden" size="40" name="{{ search_var }}" value="{{ cl.query }}" id="searchbar"
+                        {% if cl.search_help_text %} aria-describedby="searchbar_helptext"{% endif %}>
+
+                {% if show_result_count %}
+                    <span class="small quiet">{% blocktranslate count counter=cl.result_count %}{{ counter }} result
+                        {% plural %}{{ counter }} results{% endblocktranslate %} (<a href="?
+                            {% if cl.is_popup %}{{ is_popup_var }}=1{% endif %}">{% if cl.show_full_result_count %}
+                        {% blocktranslate with full_result_count=cl.full_result_count %}{{ full_result_count }} total
+                        {% endblocktranslate %}{% else %}{% translate "Show all" %}{% endif %}</a>)</span>
+                {% endif %}
+                {% for pair in cl.params.items %}
+                    {% if pair.0 != search_var %}<input type="hidden" name="{{ pair.0 }}" value="{{ pair.1 }}">
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% if cl.search_help_text %}
+                <br class="clear">
+                <div class="help" id="searchbar_helptext">{{ cl.search_help_text }}</div>
+            {% endif %}
+        </form>
+    </div>
+{% endif %}
