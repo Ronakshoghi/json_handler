@@ -5,7 +5,7 @@ html[data-theme="light"], :root {
 }
 html[data-theme="dark"], :root {
     --btncolor: #264b5d;
-    --backcolor: #121212
+    --backcolor: #fff
 }
 
 .tags-input {
