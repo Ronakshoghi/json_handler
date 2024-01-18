@@ -1,5 +1,5 @@
 # JSON Database Management Web Application
-This Django-based web application provides an intuitive and efficient interface for managing JSON databases. It's designed to simplify the process of uploading, searching, and manipulating JSON data within a web-based environment.
+This Django-based web application provides an efficient interface for managing JSON databases. It is designed to simplify the process of uploading, searching, and manipulating JSON data within a web-based environment.
 
 ## Features
 - **JSON File Upload:** Allows users to upload JSON files and store their content in the database.
